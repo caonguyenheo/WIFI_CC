@@ -1,0 +1,7 @@
+var group___wlan_struct_sl_wlan_pm_policy_params__t =
+[
+    [ "MaxSleepTimeMs", "group___wlan.html#a38f1d34500de404f4fa5555d1c7208e6", null ],
+    [ "Reserved", "group___wlan.html#a3f5363b14f728fe990328585ccbc70e1", null ],
+    [ "Reserved2", "group___wlan.html#adabe8408427a53f6d53accdad7aaee26", null ],
+    [ "Reserved3", "group___wlan.html#abfb2a948fb50ae6d51559cf6a5c49495", null ]
+];

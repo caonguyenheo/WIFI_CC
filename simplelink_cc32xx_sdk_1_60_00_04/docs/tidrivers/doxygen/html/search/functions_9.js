@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['sd_5fclose',['SD_close',['../_s_d_8h.html#ae7f98db7753385361e0f7927b1771c41',1,'SD.h']]],
+  ['sd_5fcontrol',['SD_control',['../_s_d_8h.html#adeeaa4d71a639131abb9377322b3b226',1,'SD.h']]],
+  ['sd_5fgetnumsectors',['SD_getNumSectors',['../_s_d_8h.html#aecff5a5f73ac1cfbe27c2a0593dd7558',1,'SD.h']]],
+  ['sd_5fgetsectorsize',['SD_getSectorSize',['../_s_d_8h.html#aa88b4d26d76ad3cdfcf652c0284e8f3d',1,'SD.h']]],
+  ['sd_5finit',['SD_init',['../_s_d_8h.html#a0cfa8bf08501f1c19d2357856d4236ae',1,'SD.h']]],
+  ['sd_5finitialize',['SD_initialize',['../_s_d_8h.html#a6532267348f0afa007adec0e3ff2c3e0',1,'SD.h']]],
+  ['sd_5fopen',['SD_open',['../_s_d_8h.html#a0c897f68603b2f1341be1378ec976a2d',1,'SD.h']]],
+  ['sd_5fparams_5finit',['SD_Params_init',['../_s_d_8h.html#afd09eeb2f5a0dc0a05a238a1e455e260',1,'SD.h']]],
+  ['sd_5fread',['SD_read',['../_s_d_8h.html#ad28e80ec85e28612af735a6a20d831c0',1,'SD.h']]],
+  ['sd_5fwrite',['SD_write',['../_s_d_8h.html#afb413a941fd83b75abdbb3dead5401d8',1,'SD.h']]],
+  ['sdfatfs_5fclose',['SDFatFS_close',['../_s_d_fat_f_s_8h.html#abe6d8057c1529b6e09489b1653ef48eb',1,'SDFatFS.h']]],
+  ['sdfatfs_5finit',['SDFatFS_init',['../_s_d_fat_f_s_8h.html#ae3e438eb1f25f9b9f08d557bd480532c',1,'SDFatFS.h']]],
+  ['sdfatfs_5fopen',['SDFatFS_open',['../_s_d_fat_f_s_8h.html#af4f49c19ea2e426dc7fd4b0c534b9db8',1,'SDFatFS.h']]],
+  ['sleep',['sleep',['../unistd_8h.html#ad4669b3813c3b4a616a738317fdc974f',1,'unistd.h']]],
+  ['spi_5fclose',['SPI_close',['../_s_p_i_8h.html#a0e3448b30b88609fa120915e49560601',1,'SPI.h']]],
+  ['spi_5fcontrol',['SPI_control',['../_s_p_i_8h.html#a1b3fafc9892141b7bab1bc9c19ede9ef',1,'SPI.h']]],
+  ['spi_5finit',['SPI_init',['../_s_p_i_8h.html#afd9b09f58917f0e2d14c61b956eba214',1,'SPI.h']]],
+  ['spi_5fopen',['SPI_open',['../_s_p_i_8h.html#a9c9022decfb136991d6b53f7dd2ae2fc',1,'SPI.h']]],
+  ['spi_5fparams_5finit',['SPI_Params_init',['../_s_p_i_8h.html#a9c3dd1748332fd6e31c79a6538a71642',1,'SPI.h']]],
+  ['spi_5ftransfer',['SPI_transfer',['../_s_p_i_8h.html#a989e17f96b54fcc3dc2cac5f8ac6bdb2',1,'SPI.h']]],
+  ['spi_5ftransfercancel',['SPI_transferCancel',['../_s_p_i_8h.html#a6819f7761fc3505c4f885653ff8121f0',1,'SPI.h']]]
+];

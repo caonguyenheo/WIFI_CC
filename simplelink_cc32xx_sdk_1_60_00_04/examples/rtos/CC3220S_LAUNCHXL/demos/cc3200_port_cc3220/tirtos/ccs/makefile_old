@@ -1,0 +1,110 @@
+SIMPLELINK_CC32XX_SDK_INSTALL_DIR ?= $(abspath ../../../../../../..)
+
+include $(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/imports.mak
+
+KERNEL_BUILD := $(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/kernel/tirtos/builds/CC3220S_LAUNCHXL/release
+
+CC = "$(CCS_ARMCOMPILER)/bin/armcl"
+LNK = "$(CCS_ARMCOMPILER)/bin/armcl"
+
+OBJECTS = uart_term.obj main_tirtos.obj cmd_parser.obj netapp_cmd.obj network_terminal.obj radio_tool.obj socket_cmd.obj str.obj transceiver_cmd.obj wlan_cmd.obj CC3220S_LAUNCHXL.obj
+
+CONFIGPKG = $(KERNEL_BUILD)/ccs
+
+NAME = network_terminal
+
+CFLAGS = -I../.. \
+    -DCC32XX \
+    "-I$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source" \
+    "-I$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source/ti/posix/ccs" \
+    --silicon_version=7M4 \
+    --code_state=16 \
+    --little_endian \
+    --display_error_number \
+    --diag_warning=255 \
+    --diag_wrap=off \
+    --gen_func_subsections=on \
+    --float_support=vfplib \
+    --symdebug:dwarf \
+    "-I$(CCS_ARMCOMPILER)/include"
+
+LFLAGS = "-i$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source" \
+    -lti/display/lib/display.aem4 \
+    -lti/drivers/lib/drivers_cc32xx.aem4 \
+    -lthird_party/fatfs/lib/fatfs.aem4 \
+    "-i$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source/ti/drivers/net/wifi" \
+    -lccs/rtos/simplelink.a \
+    "-i$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/kernel/tirtos/packages" \
+    -lti/dpl/lib/dpl_cc32xx.aem4 \
+    "-l$(KERNEL_BUILD)/ccs/linker.cmd" \
+    -lti/devices/cc32xx/driverlib/ccs/Release/driverlib.a \
+    ../../tirtos/ccs/CC3220S_LAUNCHXL_TIRTOS.cmd \
+    "-m$(NAME).map" \
+    --warn_sections \
+    --display_error_number \
+    --diag_wrap=off \
+    --rom_model \
+    "-i$(CCS_ARMCOMPILER)/lib" \
+    -llibc.a
+
+all: $(NAME).out
+
+$(CONFIGPKG)/linker.cmd $(CONFIGPKG)/compiler.opt:
+	@ $(ECHOBLANKLINE)
+	@ echo $(CONFIGPKG) is not built.
+	@ echo You can build it by issuing $(MAKE) in $(CONFIGPKG).
+	@ $(ECHOBLANKLINE)
+
+uart_term.obj: ../../uart_term.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+main_tirtos.obj: ../../tirtos/main_tirtos.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+cmd_parser.obj: ../../cmd_parser.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+netapp_cmd.obj: ../../netapp_cmd.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+network_terminal.obj: ../../network_terminal.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+radio_tool.obj: ../../radio_tool.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+socket_cmd.obj: ../../socket_cmd.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+str.obj: ../../str.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+transceiver_cmd.obj: ../../transceiver_cmd.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+wlan_cmd.obj: ../../wlan_cmd.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+CC3220S_LAUNCHXL.obj: ../../CC3220S_LAUNCHXL.c $(CONFIGPKG)/compiler.opt
+	@ echo Building $@
+	@ $(CC) $(CFLAGS) $< --cmd_file=$(CONFIGPKG)/compiler.opt --output_file=$@
+
+$(NAME).out: $(OBJECTS) $(CONFIGPKG)/linker.cmd
+	@ echo linking...
+	@ $(LNK) $(CFLAGS) -z $(OBJECTS) $(LFLAGS) -o $(NAME).out
+
+clean:
+	@ echo Cleaning...
+	@ $(RM) $(OBJECTS) > $(DEVNULL) 2>&1
+	@ $(RM) $(NAME).out > $(DEVNULL) 2>&1
+	@ $(RM) $(NAME).map > $(DEVNULL) 2>&1

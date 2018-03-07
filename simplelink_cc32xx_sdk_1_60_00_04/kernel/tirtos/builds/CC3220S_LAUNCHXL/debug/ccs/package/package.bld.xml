@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ccs" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/debug_pem4.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220S_LAUNCHXL/debug/debug.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/debug_pem4.mak" src="package.bld"/>
+        <srcFile name="package/cfg/debug_pem4.oem4.dep" src="package/cfg/debug_pem4.c"/>
+        <srcFile name="package/cfg/debug_pem4.dep" src="package/cfg/debug_pem4.cfg"/>
+        <srcFile name="package/cfg/debug.xem4.mak" src="package.bld"/>
+        <srcFile name="package/rel/ccs.tar.dep" src="package/rel/ccs.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M4"
+            version="ti.targets.arm.elf.M4{1,0,16.9,4"
+            rawVersion="16.9.4"
+            platform="ti.platforms.tiva:TM4C1294NCPDT:1"
+            isa="v7M4"
+            suffix="em4"
+            rootDir="/home/heo/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="debug"
+        pname="debug.pem4"
+        target="ti.targets.arm.elf.M4"
+        platform="ti.platforms.simplelink:CC3220S"
+        profile="release"
+        isPartial="false"
+        xCfgScript="package/cfg/debug_pem4.cfg"
+        xCfgPrefix="package/cfg/debug_pem4"
+        cfgScript="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220S_LAUNCHXL/debug/debug.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="debug"
+        pname="debug.xem4"
+        target="ti.targets.arm.elf.M4"
+        platform="ti.platforms.simplelink:CC3220S"
+        profile="release"
+        xCfgScript="package/cfg/debug_pem4.cfg"
+        xCfgPrefix="package/cfg/debug_pem4"
+        cfgScript="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220S_LAUNCHXL/debug/debug.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="debug.xem4"
+        args=""
+        groupName="debug.xem4"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ccs"
+        pname="ccs.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

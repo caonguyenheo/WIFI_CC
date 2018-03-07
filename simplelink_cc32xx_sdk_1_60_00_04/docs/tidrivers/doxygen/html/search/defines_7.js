@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['sdhostcc32xx_5fpin_5f01_5fsdcard_5fclk',['SDHostCC32XX_PIN_01_SDCARD_CLK',['../_s_d_host_c_c32_x_x_8h.html#ae9bd15604a3ae321ab181d7cb8fdc3bf',1,'SDHostCC32XX.h']]],
+  ['sdhostcc32xx_5fpin_5f02_5fsdcard_5fcmd',['SDHostCC32XX_PIN_02_SDCARD_CMD',['../_s_d_host_c_c32_x_x_8h.html#ac51233874d54441436061dd5ea2c8c71',1,'SDHostCC32XX.h']]],
+  ['sdhostcc32xx_5fpin_5f06_5fsdcard_5fdata',['SDHostCC32XX_PIN_06_SDCARD_DATA',['../_s_d_host_c_c32_x_x_8h.html#a5d50e6d11c9fb365978f31f1dcbd28a9',1,'SDHostCC32XX.h']]],
+  ['sdhostcc32xx_5fpin_5f07_5fsdcard_5fclk',['SDHostCC32XX_PIN_07_SDCARD_CLK',['../_s_d_host_c_c32_x_x_8h.html#aeec49bac201a171f8244737d9955adae',1,'SDHostCC32XX.h']]],
+  ['sdhostcc32xx_5fpin_5f08_5fsdcard_5fcmd',['SDHostCC32XX_PIN_08_SDCARD_CMD',['../_s_d_host_c_c32_x_x_8h.html#a76bf7fa53044c6b0ad130d1de5e7846d',1,'SDHostCC32XX.h']]],
+  ['sdhostcc32xx_5fpin_5f64_5fsdcard_5fdata',['SDHostCC32XX_PIN_64_SDCARD_DATA',['../_s_d_host_c_c32_x_x_8h.html#a309a157f81ed4f7d2c289964f0fd1150',1,'SDHostCC32XX.h']]],
+  ['spi_5fwait_5fforever',['SPI_WAIT_FOREVER',['../_s_p_i_8h.html#a7cab73b936e6e08392882196df41277e',1,'SPI.h']]],
+  ['spicc32xxdma_5fpin_5f05_5fclk',['SPICC32XXDMA_PIN_05_CLK',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#a0f7b6a7a9dfc220b703fae27ab0f2a1b',1,'SPICC32XXDMA.h']]],
+  ['spicc32xxdma_5fpin_5f06_5fmiso',['SPICC32XXDMA_PIN_06_MISO',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#a04449b2d27de7b2a70d38f98769b9f6b',1,'SPICC32XXDMA.h']]],
+  ['spicc32xxdma_5fpin_5f07_5fmosi',['SPICC32XXDMA_PIN_07_MOSI',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#abd21b471135554af10ed8cc0b6403993',1,'SPICC32XXDMA.h']]],
+  ['spicc32xxdma_5fpin_5f08_5fcs',['SPICC32XXDMA_PIN_08_CS',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#ae98f6dad605ba4858c781f6ac1c055ae',1,'SPICC32XXDMA.h']]],
+  ['spicc32xxdma_5fpin_5f45_5fclk',['SPICC32XXDMA_PIN_45_CLK',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#ae2864067fa1ab0e2e6be5bd22d88afcd',1,'SPICC32XXDMA.h']]],
+  ['spicc32xxdma_5fpin_5f50_5fcs',['SPICC32XXDMA_PIN_50_CS',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#a967ce7cc61ed9cbf33fbfc07b763c099',1,'SPICC32XXDMA.h']]],
+  ['spicc32xxdma_5fpin_5f52_5fmosi',['SPICC32XXDMA_PIN_52_MOSI',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#a2b58fe563f17555b2e5080e8b49e9728',1,'SPICC32XXDMA.h']]],
+  ['spicc32xxdma_5fpin_5f53_5fmiso',['SPICC32XXDMA_PIN_53_MISO',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#a9b15ba6055b44cde5590202a4c1a4282',1,'SPICC32XXDMA.h']]],
+  ['spicc32xxdma_5fpin_5fno_5fconfig',['SPICC32XXDMA_PIN_NO_CONFIG',['../_s_p_i_c_c32_x_x_d_m_a_8h.html#ae945ff9c77552e825b903f25a65acecf',1,'SPICC32XXDMA.h']]]
+];

@@ -1,0 +1,1278 @@
+******************************************************************************
+                  TI ARM Linker Unix v16.9.4                   
+******************************************************************************
+>> Linked Thu Jan 25 10:52:32 2018
+
+OUTPUT FILE NAME:   <portable.out>
+ENTRY POINT SYMBOL: "resetISR"  address: 200138f9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SRAM2                 20000000   00004000  0000070c  000038f4  RW X
+  SRAM                  20004000   0003c000  00010e0f  0002b1f1  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+20003c00    20003c00    00000400   00000000    rw-
+  20003c00    20003c00    00000400   00000000    rw- .stack
+20004000    20004000    00000040   00000040    r--
+  20004000    20004000    00000040   00000040    r-- .resetVecs
+20004040    20004040    00008491   00000000    rw-
+  20004040    20004040    00008491   00000000    rw- .bss
+2000c4d4    2000c4d4    0000772e   0000772e    r-x
+  2000c4d4    2000c4d4    0000772e   0000772e    r-x .text
+20013c04    20013c04    00000b40   00000000    rw-
+  20013c04    20013c04    00000b40   00000000    rw- .data
+20014744    20014744    000005d0   000005d0    r--
+  20014744    20014744    000005d0   000005d0    r-- .const
+20014d18    20014d18    00000100   00000100    r--
+  20014d18    20014d18    00000100   00000100    r-- .cinit
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.text      0    2000c4d4    0000772e     
+                  2000c4d4    0000042c     driverlib.a : prcm.obj (.text:PRCMCC3200MCUInit)
+                  2000c900    00000270     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:UARTCC32XX_open)
+                  2000cb70    000001f4     rtsv7M4_T_le_eabi.lib : ull_div_t2.obj (.text)
+                  2000cd64    000001d4     freertos.lib : ti_posix_freertos_timer.obj (.text:timer_settime)
+                  2000cf38    000001d0                  : queue.obj (.text:xQueueSemaphoreTake)
+                  2000d108    000001cc     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.text:GPIO_setConfig)
+                  2000d2d4    000001b8     freertos.lib : queue.obj (.text:xQueueGenericSend)
+                  2000d48c    000001b4                  : PowerCC32XX_freertos.obj (.text:PowerCC32XX_sleepPolicy)
+                  2000d640    0000018c                  : heap_4.obj (.text:pvPortMalloc)
+                  2000d7cc    0000017c                  : queue.obj (.text:xQueueReceive)
+                  2000d948    00000150     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:parkPins)
+                  2000da98    00000138     freertos.lib : tasks.obj (.text:xTaskIncrementTick)
+                  2000dbd0    00000122     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.text:I2CCC32XX_hwiFxn)
+                  2000dcf2    00000002                         : I2CCC32XX.oem4 (.text:I2CCC32XX_cancel)
+                  2000dcf4    00000120                         : UARTCC32XX.oem4 (.text:UARTCC32XX_close)
+                  2000de14    00000120     console.obj (.text:simpleConsole)
+                  2000df34    0000011c     freertos.lib : tasks.obj (.text:prvInitialiseNewTask)
+                  2000e050    0000011c                  : tasks.obj (.text:xTaskResumeAll)
+                  2000e16c    00000118     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_sleep)
+                  2000e284    00000118     freertos.lib : timers.obj (.text:prvProcessReceivedCommands)
+                  2000e39c    00000118                  : ti_posix_freertos_pthread.obj (.text:pthread_create)
+                  2000e4b4    00000114                  : tasks.obj (.text:vTaskPriorityDisinheritAfterTimeout)
+                  2000e5c8    0000010c     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.text:I2CCC32XX_open)
+                  2000e6d4    00000102     freertos.lib : queue.obj (.text:xQueueGenericSendFromISR)
+                  2000e7d6    00000002     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.text:I2CCC32XX_init)
+                  2000e7d8    00000100     temperature.obj (.text:temperatureThread)
+                  2000e8d8    000000fc     freertos.lib : tasks.obj (.text:vTaskSuspend)
+                  2000e9d4    000000fa     rtsv7M4_T_le_eabi.lib : fs_add_t2.obj (.text)
+                  2000eace    00000002     driverlib.a : interrupt.obj (.text:IntDefaultHandler)
+                  2000ead0    000000f8     freertos.lib : tasks.obj (.text:vTaskDelete)
+                  2000ebc8    000000ee     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:UARTCC32XX_control)
+                  2000ecb6    000000ee     freertos.lib : queue.obj (.text:xQueueGiveFromISR)
+                  2000eda4    000000e8                  : tasks.obj (.text:xTaskPriorityInherit)
+                  2000ee8c    000000e0                  : tasks.obj (.text:xTaskPriorityDisinherit)
+                  2000ef6c    000000dc                  : tasks.obj (.text:vTaskSwitchContext)
+                  2000f048    000000c4     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.text:GPIO_init)
+                  2000f10c    000000c4     freertos.lib : tasks.obj (.text:prvAddNewTaskToReadyList)
+                  2000f1d0    000000c4                  : heap_4.obj (.text:prvHeapInit)
+                  2000f294    000000c0     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:UARTCC32XX_write)
+                  2000f354    000000be     freertos.lib : queue.obj (.text:prvCopyDataToQueue)
+                  2000f412    00000002                  : PowerCC32XX_freertos.obj (.text:PowerCC32XX_initPolicy)
+                  2000f414    000000ba                  : portasm.obj (.text)
+                  2000f4ce    00000002     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:UARTCC32XX_init)
+                  2000f4d0    000000b8                         : UARTCC32XX.oem4 (.text:initHw)
+                  2000f588    000000b8     freertos.lib : timers.obj (.text:prvSwitchTimerLists)
+                  2000f640    000000b8     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:readIsrTextBlocking)
+                  2000f6f8    000000b8     freertos.lib : ti_posix_freertos_timer.obj (.text:timer_create)
+                  2000f7b0    000000b8                  : queue.obj (.text:xQueueGenericReset)
+                  2000f868    000000b4     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:UARTCC32XX_readPolling)
+                  2000f91c    000000b4     freertos.lib : ti_posix_freertos_clock.obj (.text:_clock_abstime2ticks)
+                  2000f9d0    000000b4     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:restoreParkedPins)
+                  2000fa84    000000b0     console.obj (.text:consoleThread)
+                  2000fb34    000000b0     freertos.lib : tasks.obj (.text:prvAddCurrentTaskToDelayedList)
+                  2000fbe4    000000ae     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:readIsrTextCallback)
+                  2000fc92    00000002     freertos.lib : startup_cc32xx_ccs.obj (.text:busFaultHandler)
+                  2000fc94    000000ac                  : ClockP_freertos.obj (.text:ClockP_start)
+                  2000fd40    000000aa                  : queue.obj (.text:prvUnlockQueue)
+                  2000fdea    000000aa     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:readTaskBlocking)
+                  2000fe94    000000a8     driverlib.a : interrupt.obj (.text:IntDisable)
+                  2000ff3c    000000a8                 : interrupt.obj (.text:IntEnable)
+                  2000ffe4    000000a8     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:PowerCC32XX_configureWakeup)
+                  2001008c    000000a8     freertos.lib : heap_4.obj (.text:prvInsertBlockIntoFreeList)
+                  20010134    000000a8                  : tasks.obj (.text:xTaskCheckForTimeOut)
+                  200101dc    000000a8                  : tasks.obj (.text:xTaskRemoveFromEventList)
+                  20010284    000000a4     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.text:I2CCC32XX_transfer)
+                  20010328    000000a4     main_freertos.obj (.text:main)
+                  200103cc    000000a4     freertos.lib : heap_4.obj (.text:vPortFree)
+                  20010470    000000a2     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:writeData)
+                  20010512    0000009c     rtsv7M4_T_le_eabi.lib : memcpy_t2.obj (.text)
+                  200105ae    00000002     freertos.lib : startup_cc32xx_ccs.obj (.text:defaultHandler)
+                  200105b0    0000009c                  : port.obj (.text:xPortStartScheduler)
+                  2001064c    00000098     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.text:powerNotifyFxn)
+                  200106e4    00000094     freertos.lib : tasks.obj (.text:vTaskStartScheduler)
+                  20010778    00000092     rtsv7M4_T_le_eabi.lib : fs_div_t2.obj (.text)
+                  2001080a    00000002     freertos.lib : startup_cc32xx_ccs.obj (.text:faultISR)
+                  2001080c    00000090     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:restoreNVICRegs)
+                  2001089c    0000008c                         : I2CCC32XX.oem4 (.text:I2CCC32XX_close)
+                  20010928    0000008c     freertos.lib : ti_posix_freertos_clock.obj (.text:_clock_gettimeMono)
+                  200109b4    0000008c                  : ti_posix_freertos_clock.obj (.text:clock_gettime)
+                  20010a40    0000008c                  : ti_posix_freertos_pthread_mutex.obj (.text:pthread_mutex_init)
+                  20010acc    0000008c     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:readIsrBinaryBlocking)
+                  20010b58    00000086                         : I2CCC32XX.oem4 (.text:I2CCC32XX_primeTransfer)
+                  20010bde    00000002     freertos.lib : startup_cc32xx_ccs.obj (.text:nmiISR)
+                  20010be0    00000084                  : timers.obj (.text:prvProcessTimerOrBlockTask)
+                  20010c64    00000084     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:saveNVICRegs)
+                  20010ce8    00000084     freertos.lib : timers.obj (.text:xTimerGenericCommand)
+                  20010d6c    00000080     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:readIsrBinaryCallback)
+                  20010dec    00000080     temperature.obj (.text:setupTimer)
+                  20010e6c    00000080     freertos.lib : ti_posix_freertos_timer.obj (.text:timer_gettime)
+                  20010eec    0000007c                  : ClockP_freertos.obj (.text:ClockP_create)
+                  20010f68    0000007a     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:readTaskCallback)
+                  20010fe2    0000007a     rtsv7M4_T_le_eabi.lib : fs_mul_t2.obj (.text)
+                  2001105c    0000007a                           : memset_t2.obj (.text)
+                  200110d6    0000007a     freertos.lib : tasks.obj (.text:xTaskCreate)
+                  20011150    00000078     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.text:GPIO_hwiIntFxn)
+                  200111c8    00000078                         : PowerCC32XX.oem4 (.text:Power_init)
+                  20011240    00000078     freertos.lib : timers.obj (.text:prvInsertTimerInActiveList)
+                  200112b8    00000074     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:UARTCC32XX_hwiIntFxn)
+                  2001132c    00000074     freertos.lib : tasks.obj (.text:prvInitialiseTaskLists)
+                  200113a0    00000074                  : port.obj (.text:vPortValidateInterruptPriority)
+                  20011414    00000070                  : timers.obj (.text:prvProcessExpiredTimer)
+                  20011484    00000070     rtsv7M4_T_le_eabi.lib : autoinit.obj (.text)
+                  200114f4    00000068                           : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  2001155c    00000068     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.text:initHw)
+                  200115c4    00000068     freertos.lib : tasks.obj (.text:prvCheckTasksWaitingTermination)
+                  2001162c    00000068                  : tasks.obj (.text:prvGetExpectedIdleTime)
+                  20011694    00000066     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:UARTCC32XX_writeCancel)
+                  200116fa    00000066     freertos.lib : list.obj (.text:vListInsert)
+                  20011760    00000066                  : queue.obj (.text:xQueueGenericCreate)
+                  200117c6    00000002     rtsv7M4_T_le_eabi.lib : mpu_init.obj (.text)
+                  200117c8    00000064     freertos.lib : ClockP_freertos.obj (.text:ClockP_stop)
+                  2001182c    00000064     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:PowerCC32XX_setParkState)
+                  20011890    00000064     freertos.lib : ti_posix_freertos_pthread_mutex.obj (.text:acquireMutex)
+                  200118f4    00000062     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:UARTCC32XX_writePolling)
+                  20011956    00000062     console.obj (.text:itoa)
+                  200119b8    00000062     freertos.lib : ti_posix_freertos_pthread_mutex.obj (.text:pthread_mutex_unlock)
+                  20011a1a    00000002     rtsv7M4_T_le_eabi.lib : startup.obj (.text)
+                  20011a1c    00000060     freertos.lib : HwiPCC32XX_freertos.obj (.text:HwiP_create)
+                  20011a7c    00000060     driverlib.a : prcm.obj (.text:PRCMSysResetCauseGet)
+                  20011adc    0000005c     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_setDependency)
+                  20011b38    0000005c     freertos.lib : ti_posix_freertos_pthread.obj (.text:_pthread_runStub)
+                  20011b94    0000005c                  : tasks.obj (.text:prvIdleTask)
+                  20011bf0    0000005c                  : ti_posix_freertos_pthread.obj (.text:removeThreadKeys)
+                  20011c4c    0000005c                  : queue.obj (.text:vQueueWaitForMessageRestricted)
+                  20011ca8    0000005a                  : timers.obj (.text:prvInitialiseNewTimer)
+                  20011d02    00000002     main_freertos.obj (.text:vApplicationMallocFailedHook)
+                  20011d04    00000058     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.text:GPIO_setCallback)
+                  20011d5c    00000058                         : GPIOCC32XX.oem4 (.text:GPIO_write)
+                  20011db4    00000058     driverlib.a : interrupt.obj (.text:IntPendClear)
+                  20011e0c    00000058                 : prcm.obj (.text:PRCMPeripheralReset)
+                  20011e64    00000058     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_releaseDependency)
+                  20011ebc    00000058     freertos.lib : tasks.obj (.text:eTaskConfirmSleepModeStatus)
+                  20011f14    00000058                  : port.obj (.text:vPortSetupTimerInterrupt)
+                  20011f6c    00000058                  : queue.obj (.text:xQueueCreateCountingSemaphore)
+                  20011fc4    00000058                  : queue.obj (.text:xQueueTakeMutexRecursive)
+                  2001201c    00000056                  : SemaphoreP_freertos.obj (.text:SemaphoreP_create)
+                  20012072    00000056     console.obj (.text:reverse)
+                  200120c8    00000054     freertos.lib : ClockP_freertos.obj (.text:ClockP_delete)
+                  2001211c    00000054     driverlib.a : interrupt.obj (.text:IntPrioritySet)
+                  20012170    00000054     rtsv7M4_T_le_eabi.lib : exit.obj (.text)
+                  200121c4    00000054     freertos.lib : timers.obj (.text:xTimerCreateTimerTask)
+                  20012218    00000052     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:PowerCC32XX_parkPin)
+                  2001226a    00000052                         : PowerCC32XX_asm.oem4 (.text:PowerCC32XX_resumeLPDS)
+                  200122bc    00000050     freertos.lib : port.obj (.text:pxPortInitialiseStack)
+                  2001230c    00000050                  : ti_posix_freertos_semaphore.obj (.text:sem_init)
+                  2001235c    00000050                  : queue.obj (.text:xQueueGiveMutexRecursive)
+                  200123ac    0000004c     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.text:GPIO_enableInt)
+                  200123f8    0000004c                         : I2CCC32XX.oem4 (.text:I2CCC32XX_completeTransfer)
+                  20012444    0000004c     freertos.lib : startup_cc32xx_ccs.obj (.text:initVectors)
+                  20012490    0000004c                  : timers.obj (.text:prvCheckForValidListAndQueue)
+                  200124dc    0000004c     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:restorePeriphClocks)
+                  20012528    0000004c     rtsv7M4_T_le_eabi.lib : cpy_tbl.obj (.text)
+                  20012574    0000004c     freertos.lib : port.obj (.text:vPortEnterCritical)
+                  200125c0    00000048     driverlib.a : flash.obj (.text:FlashDisable)
+                  20012608    00000048     freertos.lib : HwiPCC32XX_freertos.obj (.text:HwiP_dispatch)
+                  20012650    00000048     driverlib.a : prcm.obj (.text:PRCMLPDSEnter)
+                  20012698    00000048                 : prcm.obj (.text:PRCMPeripheralClkEnable)
+                  200126e0    00000048     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_releaseConstraint)
+                  20012728    00000048     freertos.lib : list.obj (.text:uxListRemove)
+                  20012770    00000046     drivers_cc32xx.aem4 : RingBuf.oem4 (.text:RingBuf_put)
+                  200127b6    00000002     --HOLE-- [fill = 0]
+                  200127b8    00000044                         : I2C.oem4 (.text:I2C_init)
+                  200127fc    00000044     driverlib.a : prcm.obj (.text:PRCMLPDSRestoreInfoSet)
+                  20012840    00000044     drivers_cc32xx.aem4 : PowerCC32XX_asm.oem4 (.text:PowerCC32XX_enterLPDS)
+                  20012884    00000044                         : UART.oem4 (.text:UART_init)
+                  200128c8    00000044                         : PowerCC32XX.oem4 (.text:notify)
+                  2001290c    00000044     freertos.lib : queue.obj (.text:prvInitialiseNewQueue)
+                  20012950    00000044                  : tasks.obj (.text:vTaskStepTick)
+                  20012994    00000040     driverlib.a : pin.obj (.text:PinModeSet)
+                  200129d4    00000040     drivers_cc32xx.aem4 : RingBuf.oem4 (.text:RingBuf_get)
+                  20012a14    00000040                         : UARTCC32XX.oem4 (.text:UARTCC32XX_read)
+                  20012a54    00000040     rtsv7M4_T_le_eabi.lib : boot.obj (.text)
+                  20012a94    00000040     freertos.lib : tasks.obj (.text:vTaskPlaceOnEventListRestricted)
+                  20012ad4    0000003e                  : ti_posix_freertos_semaphore.obj (.text:sem_post)
+                  20012b12    00000002     --HOLE-- [fill = 0]
+                  20012b14    0000003c     drivers_cc32xx.aem4 : I2C.oem4 (.text:I2C_open)
+                  20012b50    0000003c     driverlib.a : prcm.obj (.text:PRCMSlowClkCtrFastGet)
+                  20012b8c    0000003c     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_setConstraint)
+                  20012bc8    0000003c                         : UART.oem4 (.text:UART_open)
+                  20012c04    0000003c     freertos.lib : queue.obj (.text:prvCopyDataFromQueue)
+                  20012c40    0000003c                  : tasks.obj (.text:prvResetNextTaskUnblockTime)
+                  20012c7c    0000003c                  : tasks.obj (.text:pvTaskGetThreadLocalStoragePointer)
+                  20012cb8    0000003c                  : ti_posix_freertos_timer.obj (.text:timespecToTicks)
+                  20012cf4    0000003c                  : list.obj (.text:vListInsertEnd)
+                  20012d30    0000003c                  : tasks.obj (.text:vTaskSetTimeOutState)
+                  20012d6c    0000003a                  : ti_posix_freertos_timer.obj (.text:callbackFxn)
+                  20012da6    00000002     --HOLE-- [fill = 0]
+                  20012da8    00000038     driverlib.a : prcm.obj (.text:PRCMLPDSEnterKeepDebugIf)
+                  20012de0    00000038     freertos.lib : timers.obj (.text:prvGetNextExpireTime)
+                  20012e18    00000038                  : port.obj (.text:prvTaskExitError)
+                  20012e50    00000038     rtsv7M4_T_le_eabi.lib : fs_toi_t2.obj (.text)
+                  20012e88    00000038                           : i_tofs_t2.obj (.text)
+                  20012ec0    00000036     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:PowerCC32XX_restoreParkedPin)
+                  20012ef6    00000036                         : UARTCC32XX.oem4 (.text:UARTCC32XX_readCancel)
+                  20012f2c    00000034     driverlib.a : pin.obj (.text:PinModeGet)
+                  20012f60    00000034     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:PowerCC32XX_restoreParkState)
+                  20012f94    00000034     freertos.lib : timers.obj (.text:prvSampleTimeNow)
+                  20012fc8    00000034                  : tasks.obj (.text:vTaskPlaceOnEventList)
+                  20012ffc    00000034                  : tasks.obj (.text:vTaskSetThreadLocalStoragePointer)
+                  20013030    00000034                  : timers.obj (.text:xTimerCreate)
+                  20013064    00000030                  : list.obj (.text:vListInitialise)
+                  20013094    00000030                  : port.obj (.text:vPortExitCritical)
+                  200130c4    00000030                  : tasks.obj (.text:xTaskGetSchedulerState)
+                  200130f4    0000002e                  : timers.obj (.text:pvTimerGetTimerID)
+                  20013122    00000002     --HOLE-- [fill = 0]
+                  20013124    0000002c                  : HwiPCC32XX_freertos.obj (.text:HwiP_disable)
+                  20013150    0000002c     driverlib.a : prcm.obj (.text:PRCMLPDSIntervalSet)
+                  2001317c    0000002c     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:PowerCC32XX_getParkState)
+                  200131a8    0000002c     freertos.lib : SemaphoreP_freertos.obj (.text:SemaphoreP_createBinary)
+                  200131d4    0000002c                  : ti_posix_freertos_timer.obj (.text:timer_delete)
+                  20013200    0000002c                  : tasks.obj (.text:vTaskSetApplicationTaskTag)
+                  2001322c    0000002c                  : port.obj (.text:xPortSysTickHandler)
+                  20013258    0000002c                  : queue.obj (.text:xQueueCreateMutex)
+                  20013284    0000002c                  : tasks.obj (.text:xTaskGetApplicationTaskTag)
+                  200132b0    0000002a                  : queue.obj (.text:prvInitialiseMutex)
+                  200132da    0000002a                  : ti_posix_freertos_pthread_mutex.obj (.text:pthread_mutex_destroy)
+                  20013304    0000002a                  : timers.obj (.text:xTimerGetExpiryTime)
+                  2001332e    00000002     --HOLE-- [fill = 0]
+                  20013330    00000028                  : HwiPCC32XX_freertos.obj (.text:HwiP_inISR)
+                  20013358    00000028     driverlib.a : prcm.obj (.text:PRCMLPDSWakeupSourceEnable)
+                  20013380    00000028                 : prcm.obj (.text:PRCMPeripheralClkDisable)
+                  200133a8    00000028     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_registerNotify)
+                  200133d0    00000028     freertos.lib : ti_posix_freertos_pthread.obj (.text:pthread_attr_setschedparam)
+                  200133f8    00000026     drivers_cc32xx.aem4 : List.oem4 (.text:List_put)
+                  2001341e    00000026     freertos.lib : ti_posix_freertos_pthread.obj (.text:_pthread_cleanup_pop)
+                  20013444    00000026                  : queue.obj (.text:prvIsQueueFull)
+                  2001346a    00000002     --HOLE-- [fill = 0]
+                  2001346c    00000024     driverlib.a : interrupt.obj (.text:IntUnregister)
+                  20013490    00000024     console.obj (.text:gpioButtonFxn)
+                  200134b4    00000024     freertos.lib : queue.obj (.text:prvGetDisinheritPriorityAfterTimeout)
+                  200134d8    00000024                  : queue.obj (.text:vQueueDelete)
+                  200134fc    00000024                  : tasks.obj (.text:vTaskInternalSetTimeOutState)
+                  20013520    00000022                  : SemaphoreP_freertos.obj (.text:SemaphoreP_post)
+                  20013542    00000022                  : ti_posix_freertos_aeabi_portable.obj (.text:__aeabi_errno_addr)
+                  20013564    00000022                  : ti_posix_freertos_pthread.obj (.text:pthread_attr_setdetachstate)
+                  20013586    00000002     --HOLE-- [fill = 0]
+                  20013588    00000020                  : ClockP_freertos.obj (.text:ClockP_getCpuFreq)
+                  200135a8    00000020                  : HwiPCC32XX_freertos.obj (.text:HwiP_restore)
+                  200135c8    00000020     driverlib.a : interrupt.obj (.text:IntRegister)
+                  200135e8    00000020     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_unregisterNotify)
+                  20013608    00000020                         : RingBuf.oem4 (.text:RingBuf_peek)
+                  20013628    00000020     freertos.lib : SemaphoreP_freertos.obj (.text:SemaphoreP_pend)
+                  20013648    00000020     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:getPowerMgrId)
+                  20013668    00000020     freertos.lib : queue.obj (.text:prvIsQueueEmpty)
+                  20013688    00000020                  : ti_posix_freertos_semaphore.obj (.text:semaphorePend)
+                  200136a8    0000001e                  : ClockP_freertos.obj (.text:ClockP_callbackFxn)
+                  200136c6    0000001e                  : HwiPCC32XX_freertos.obj (.text:HwiP_Params_init)
+                  200136e4    0000001c                  : ClockP_freertos.obj (.text:ClockP_Params_init)
+                  20013700    0000001c     driverlib.a : pin.obj (.text:PinToPadGet)
+                  2001371c    0000001c     freertos.lib : ti_posix_freertos_pthread.obj (.text:pthread_attr_init)
+                  20013738    0000001c                  : tasks.obj (.text:pvTaskIncrementMutexHeldCount)
+                  20013754    0000001a                  : ti_posix_freertos_PTLS.obj (.text:PTLS_taskDeleteHook)
+                  2001376e    0000001a                  : timers.obj (.text:prvTimerTask)
+                  20013788    00000018     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_idleFunc)
+                  200137a0    00000018     driverlib.a : uart.obj (.text:UARTBusy)
+                  200137b8    00000018                 : uart.obj (.text:UARTIntEnable)
+                  200137d0    00000018     drivers_cc32xx.aem4 : UART.oem4 (.text:UART_Params_init)
+                  200137e8    00000018     rtsv7M4_T_le_eabi.lib : args_main.obj (.text)
+                  20013800    00000018                           : ll_mul_t2.obj (.text)
+                  20013818    00000018     freertos.lib : ti_posix_freertos_semaphore.obj (.text:sem_wait)
+                  20013830    00000018                  : tasks.obj (.text:xTaskGetTickCountFromISR)
+                  20013848    00000016                  : ClockP_freertos.obj (.text:ClockP_setTimeout)
+                  2001385e    00000016     drivers_cc32xx.aem4 : List.oem4 (.text:List_remove)
+                  20013874    00000016     driverlib.a : prcm.obj (.text:PRCMHIBRegRead)
+                  2001388a    00000016                 : prcm.obj (.text:PRCMHIBRegWrite)
+                  200138a0    00000016     freertos.lib : ti_posix_freertos_PTLS.obj (.text:PTLS_getBuf)
+                  200138b6    00000016                  : ti_posix_freertos_PTLS.obj (.text:PTLS_setBuf)
+                  200138cc    00000016                  : SemaphoreP_freertos.obj (.text:SemaphoreP_Params_init)
+                  200138e2    00000016                  : ti_posix_freertos_pthread_mutex.obj (.text:pthread_mutex_lock)
+                  200138f8    00000016                  : startup_cc32xx_ccs.obj (.text:resetISR)
+                  2001390e    00000014     driverlib.a : cpu.obj (.text:CPUcpsie)
+                  20013922    00000002     --HOLE-- [fill = 0]
+                  20013924    00000014                 : interrupt.obj (.text:IntVTableBaseSet)
+                  20013938    00000014     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:PowerCC32XX_getWakeup)
+                  2001394c    00000014                         : PowerCC32XX.oem4 (.text:Power_getDependencyCount)
+                  20013960    00000014     freertos.lib : tasks.obj (.text:prvDeleteTCB)
+                  20013974    00000014                  : ti_posix_freertos_pthread.obj (.text:pthread_attr_setstacksize)
+                  20013988    00000014                  : ti_posix_freertos_pthread.obj (.text:pthread_self)
+                  2001399c    00000014     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:releasePowerConstraint)
+                  200139b0    00000014     rtsv7M4_T_le_eabi.lib : _lock.obj (.text)
+                  200139c4    00000014                           : strlen.obj (.text)
+                  200139d8    00000014     freertos.lib : PowerCC32XX_freertos.obj (.text:vPortSuppressTicksAndSleep)
+                  200139ec    00000014                  : tasks.obj (.text:xTaskGetCurrentTaskHandle)
+                  20013a00    00000014                  : tasks.obj (.text:xTaskGetTickCount)
+                  20013a14    00000012                  : HwiPCC32XX_freertos.obj (.text:HwiP_delete)
+                  20013a26    00000012     drivers_cc32xx.aem4 : RingBuf.oem4 (.text:RingBuf_construct)
+                  20013a38    00000010     freertos.lib : ClockP_freertos.obj (.text:ClockP_getSystemTickPeriod)
+                  20013a48    00000010     drivers_cc32xx.aem4 : I2C.oem4 (.text:I2C_Params_init)
+                  20013a58    00000010                         : PowerCC32XX.oem4 (.text:Power_enablePolicy)
+                  20013a68    00000010     driverlib.a : systick.obj (.text:SysTickDisable)
+                  20013a78    00000010                 : systick.obj (.text:SysTickEnable)
+                  20013a88    00000010     temperature.obj (.text:postSem)
+                  20013a98    00000010     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:readBlockingTimeout)
+                  20013aa8    00000010     freertos.lib : list.obj (.text:vListInitialiseItem)
+                  20013ab8    00000010                  : tasks.obj (.text:vTaskSuspendAll)
+                  20013ac8    0000000e     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_getTransitionLatency)
+                  20013ad6    0000000e     temperature.obj (.text:clearAlert)
+                  20013ae4    0000000e     rtsv7M4_T_le_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  20013af2    0000000e     temperature.obj (.text:sendAlert)
+                  20013b00    0000000c     CC3220S_LAUNCHXL.obj (.text:CC3220S_LAUNCHXL_initGeneral)
+                  20013b0c    0000000c     driverlib.a : cpu.obj (.text:CPUwfi)
+                  20013b18    0000000c     freertos.lib : HwiPCC32XX_freertos.obj (.text:HwiP_clearInterrupt)
+                  20013b24    0000000c                  : HwiPCC32XX_freertos.obj (.text:HwiP_disableInterrupt)
+                  20013b30    0000000c                  : HwiPCC32XX_freertos.obj (.text:HwiP_enableInterrupt)
+                  20013b3c    0000000c     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.text:Power_getConstraintMask)
+                  20013b48    0000000c     freertos.lib : SemaphoreP_freertos.obj (.text:SemaphoreP_delete)
+                  20013b54    0000000c     rtsv7M4_T_le_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  20013b60    0000000c     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.text:postNotify)
+                  20013b6c    0000000c                         : UARTCC32XX.oem4 (.text:postNotifyFxn)
+                  20013b78    0000000c     freertos.lib : tasks.obj (.text:vTaskMissedYield)
+                  20013b84    0000000a     drivers_cc32xx.aem4 : I2C.oem4 (.text:I2C_transfer)
+                  20013b8e    0000000a     driverlib.a : interrupt.obj (.text:IntMasterEnable)
+                  20013b98    0000000a     drivers_cc32xx.aem4 : List.oem4 (.text:List_empty)
+                  20013ba2    0000000a                         : UART.oem4 (.text:UART_close)
+                  20013bac    0000000a                         : UART.oem4 (.text:UART_read)
+                  20013bb6    0000000a                         : UART.oem4 (.text:UART_write)
+                  20013bc0    0000000a     main_freertos.obj (.text:vApplicationStackOverflowHook)
+                  20013bca    00000008     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.text:I2CCC32XX_blockingCallback)
+                  20013bd2    00000008     driverlib.a : prcm.obj (.text:PRCMSleepEnter)
+                  20013bda    00000008     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.text:readSemCallback)
+                  20013be2    00000008                         : UARTCC32XX.oem4 (.text:writeSemCallback)
+                  20013bea    00000006                         : I2CCC32XX.oem4 (.text:I2CCC32XX_control)
+                  20013bf0    00000006     driverlib.a : utils.obj (.text:UtilsDelay)
+                  20013bf6    00000004     drivers_cc32xx.aem4 : List.oem4 (.text:List_head)
+                  20013bfa    00000004                         : List.oem4 (.text:List_next)
+                  20013bfe    00000004     rtsv7M4_T_le_eabi.lib : pre_init.obj (.text)
+
+.ramVecs   0    20000000    0000030c     NOLOAD SECTION
+                  20000000    0000030c     freertos.lib : startup_cc32xx_ccs.obj (.ramVecs)
+
+.bss       0    20004040    00008491     UNINITIALIZED
+                  20004040    00008000     freertos.lib : heap_4.obj (.bss:ucHeap)
+                  2000c040    0000012c     (.common:PowerCC32XX_contextSave)
+                  2000c16c    00000108     (.common:uartCC3220SObjects)
+                  2000c274    000000c8                  : tasks.obj (.bss:pxReadyTasksLists)
+                  2000c33c    00000050     (.common:i2cCC3220SObjects)
+                  2000c38c    00000040     (.common:uartCC3220SRingBuffer)
+                  2000c3cc    00000020     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.bss:gpioCallbackInfo)
+                  2000c3ec    0000001c     (.common:semConsole)
+                  2000c408    00000014                         : GPIOCC32XX.oem4 (.bss:powerNotifyObj)
+                  2000c41c    00000014     freertos.lib : timers.obj (.bss:xActiveTimerList1)
+                  2000c430    00000014                  : timers.obj (.bss:xActiveTimerList2)
+                  2000c444    00000014                  : tasks.obj (.bss:xDelayedTaskList1)
+                  2000c458    00000014                  : tasks.obj (.bss:xDelayedTaskList2)
+                  2000c46c    00000014                  : tasks.obj (.bss:xPendingReadyList)
+                  2000c480    00000014                  : tasks.obj (.bss:xSuspendedTaskList)
+                  2000c494    00000014                  : tasks.obj (.bss:xTasksWaitingTermination)
+                  2000c4a8    00000008                  : tasks.obj (.bss)
+                  2000c4b0    00000008                  : timers.obj (.bss)
+                  2000c4b8    00000008                  : heap_4.obj (.bss:xStart)
+                  2000c4c0    00000004     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.bss)
+                  2000c4c4    00000004     (.common:temperatureC)
+                  2000c4c8    00000004     (.common:temperatureF)
+                  2000c4cc    00000004     (.common:temperatureMutex)
+                  2000c4d0    00000001                         : I2CCC32XX.oem4 (.bss)
+
+.const     0    20014744    000005d0     
+                  20014744    00000100     driverlib.a : pin.obj (.const:g_ulPinToPadMap)
+                  20014844    000000d4                 : interrupt.obj (.const:g_pulRegs)
+                  20014918    000000a8                 : prcm.obj (.const:PRCM_PeriphRegsList)
+                  200149c0    0000007a     console.obj (.const:.string:helpPrompt)
+                  20014a3a    00000002     console.obj (.const:.string:cleanDisplay)
+                  20014a3c    00000048     CC3220S_LAUNCHXL.obj (.const:uartCC3220SHWAttrs)
+                  20014a84    00000040     CC3220S_LAUNCHXL.obj (.const:PowerCC32XX_config)
+                  20014ac4    00000028     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.const:UARTCC32XX_fxnTable)
+                  20014aec    00000027     console.obj (.const:.string:byeDisplay)
+                  20014b13    00000001     --HOLE-- [fill = 0]
+                  20014b14    00000024     drivers_cc32xx.aem4 : UART.oem4 (.const:UART_defaultParams)
+                  20014b38    00000021                         : GPIOCC32XX.oem4 (.const:.string:pinTable)
+                  20014b59    00000003     console.obj (.const:.string:userPrompt)
+                  20014b5c    00000020     drivers_cc32xx.aem4 : UARTCC32XX.oem4 (.const:staticFxnTable)
+                  20014b7c    00000018     console.obj (.const:.string:consoleDisplay)
+                  20014b94    00000018     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.const:I2CCC32XX_fxnTable)
+                  20014bac    00000018     CC3220S_LAUNCHXL.obj (.const:UART_config)
+                  20014bc4    00000018     driverlib.a : interrupt.obj (.const:g_pulDisRegs)
+                  20014bdc    00000018                 : interrupt.obj (.const:g_pulEnRegs)
+                  20014bf4    00000018                 : interrupt.obj (.const:g_pulUnpendRegs)
+                  20014c0c    00000015     console.obj (.const:.string:readErrDisplay)
+                  20014c21    00000003     --HOLE-- [fill = 0]
+                  20014c24    00000014     CC3220S_LAUNCHXL.obj (.const:GPIOCC32XX_config)
+                  20014c38    00000014     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.const:gpioBaseAddresses)
+                  20014c4c    00000014                         : UARTCC32XX.oem4 (.const:parityType)
+                  20014c60    00000014                         : GPIOCC32XX.oem4 (.const:powerResources)
+                  20014c74    00000010     console.obj (.const:.string:tempStartDisplay)
+                  20014c84    00000010     drivers_cc32xx.aem4 : I2C.oem4 (.const:I2C_defaultParams)
+                  20014c94    00000010                         : UARTCC32XX.oem4 (.const:dataLength)
+                  20014ca4    00000010     CC3220S_LAUNCHXL.obj (.const:i2cCC3220SHWAttrs)
+                  20014cb4    0000000d     CC3220S_LAUNCHXL.obj (.const)
+                  20014cc1    00000003     --HOLE-- [fill = 0]
+                  20014cc4    0000000c     CC3220S_LAUNCHXL.obj (.const:I2C_config)
+                  20014cd0    00000008     drivers_cc32xx.aem4 : I2CCC32XX.oem4 (.const:bitRate)
+                  20014cd8    00000008     freertos.lib : port.obj (.const)
+                  20014ce0    00000008     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.const:outPinTypes)
+                  20014ce8    00000008                         : UARTCC32XX.oem4 (.const:stopBits)
+                  20014cf0    00000006                         : GPIOCC32XX.oem4 (.const:.string:interruptType)
+                  20014cf6    00000006                         : GPIOCC32XX.oem4 (.const:inPinTypes)
+                  20014cfc    00000006                         : GPIOCC32XX.oem4 (.const:outPinStrengths)
+                  20014d02    00000005     console.obj (.const:.string:tempEndDisplay)
+                  20014d07    00000004     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.const:.string:portInterruptIds)
+                  20014d0b    00000004     console.obj (.const:.string:tempMidDisplay)
+                  20014d0f    00000001     --HOLE-- [fill = 0]
+                  20014d10    00000004     freertos.lib : heap_4.obj (.const)
+
+.cinit     0    20014d18    00000100     
+                  20014d18    000000da     (.cinit..data.load) [load image, compression = lzss]
+                  20014df2    00000002     --HOLE-- [fill = 0]
+                  20014df4    0000000c     (__TI_handler_table)
+                  20014e00    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  20014e08    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    20004000    00000000     UNINITIALIZED
+
+.data      0    20013c04    00000b40     UNINITIALIZED
+                  20013c04    00000800     freertos.lib : HwiPCC32XX_freertos.obj (.data:HwiP_dispatchTable)
+                  20014404    0000016c     drivers_cc32xx.aem4 : PowerCC32XX.oem4 (.data:PowerCC32XX_module)
+                  20014570    000000f8     CC3220S_LAUNCHXL.obj (.data:parkInfo)
+                  20014668    00000034     freertos.lib : tasks.obj (.data)
+                  2001469c    00000018                  : port.obj (.data)
+                  200146b4    00000014                  : ti_posix_freertos_pthread.obj (.data:defaultPthreadAttrs)
+                  200146c8    00000010                  : heap_4.obj (.data)
+                  200146d8    0000000c     rtsv7M4_T_le_eabi.lib : exit.obj (.data:$O1$$)
+                  200146e4    0000000c     freertos.lib : ti_posix_freertos_pthread_mutex.obj (.data:defAttrs)
+                  200146f0    0000000c                  : timers.obj (.data)
+                  200146fc    0000000c     CC3220S_LAUNCHXL.obj (.data:gpioPinConfigs)
+                  20014708    00000009     drivers_cc32xx.aem4 : GPIOCC32XX.oem4 (.data)
+                  20014711    00000001     console.obj (.data)
+                  20014712    00000001     drivers_cc32xx.aem4 : I2C.oem4 (.data)
+                  20014713    00000001                         : UART.oem4 (.data)
+                  20014714    00000008     rtsv7M4_T_le_eabi.lib : _lock.obj (.data:$O1$$)
+                  2001471c    00000008     CC3220S_LAUNCHXL.obj (.data:gpioCallbackFunctions)
+                  20014724    00000008     freertos.lib : ti_posix_freertos_clock.obj (.data:refTS)
+                  2001472c    00000008                  : ti_posix_freertos_clock.obj (.data:setTS)
+                  20014734    00000004                  : ClockP_freertos.obj (.data)
+                  20014738    00000004                  : HwiPCC32XX_freertos.obj (.data)
+                  2001473c    00000004                  : PowerCC32XX_freertos.obj (.data)
+                  20014740    00000004     rtsv7M4_T_le_eabi.lib : stkdepth_vars.obj (.data)
+
+.stack     0    20003c00    00000400     UNINITIALIZED
+                  20003c00    00000400     --HOLE--
+
+.resetVecs 
+*          0    20004000    00000040     
+                  20004000    00000040     freertos.lib : startup_cc32xx_ccs.obj (.resetVecs:retain)
+
+MODULE SUMMARY
+
+       Module                                 code    ro data   rw data
+       ------                                 ----    -------   -------
+    <current directory>
+       console.obj                            684     236       29     
+       CC3220S_LAUNCHXL.obj                   12      221       676    
+       temperature.obj                        428     0         8      
+       main_freertos.obj                      176     0         4      
+    +--+--------------------------------------+-------+---------+---------+
+       Total:                                 1300    457       717    
+                                                                       
+    /home/heo/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/lib/rtsv7M4_T_le_eabi.lib
+       ull_div_t2.obj                         500     0         0      
+       fs_add_t2.obj                          250     0         0      
+       memcpy_t2.obj                          156     0         0      
+       fs_div_t2.obj                          146     0         0      
+       fs_mul_t2.obj                          122     0         0      
+       memset_t2.obj                          122     0         0      
+       autoinit.obj                           112     0         0      
+       copy_decompress_lzss.obj               104     0         0      
+       exit.obj                               84      0         12     
+       cpy_tbl.obj                            76      0         0      
+       boot.obj                               64      0         0      
+       fs_toi_t2.obj                          56      0         0      
+       i_tofs_t2.obj                          56      0         0      
+       _lock.obj                              20      0         8      
+       args_main.obj                          24      0         0      
+       ll_mul_t2.obj                          24      0         0      
+       strlen.obj                             20      0         0      
+       copy_decompress_none.obj               14      0         0      
+       copy_zero_init.obj                     12      0         0      
+       pre_init.obj                           4       0         0      
+       stkdepth_vars.obj                      0       0         4      
+       mpu_init.obj                           2       0         0      
+       startup.obj                            2       0         0      
+    +--+--------------------------------------+-------+---------+---------+
+       Total:                                 1970    0         24     
+                                                                       
+    /media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/freertos/builds/CC3220S_LAUNCHXL/release/ccs/freertos.lib
+       heap_4.obj                             924     4         32792  
+       tasks.obj                              4542    0         360    
+       queue.obj                              3130    0         0      
+       HwiPCC32XX_freertos.obj                368     0         2052   
+       timers.obj                             1484    0         60     
+       startup_cc32xx_ccs.obj                 106     64        780    
+       ti_posix_freertos_timer.obj            942     0         0      
+       port.obj                               664     8         24     
+       ti_posix_freertos_pthread.obj          644     0         20     
+       ClockP_freertos.obj                    608     0         4      
+       ti_posix_freertos_clock.obj            460     0         16     
+       PowerCC32XX_freertos.obj               458     0         4      
+       ti_posix_freertos_pthread_mutex.obj    402     0         12     
+       list.obj                               298     0         0      
+       SemaphoreP_freertos.obj                230     0         0      
+       ti_posix_freertos_semaphore.obj        198     0         0      
+       portasm.obj                            186     0         0      
+       ti_posix_freertos_PTLS.obj             70      0         0      
+       ti_posix_freertos_aeabi_portable.obj   34      0         0      
+    +--+--------------------------------------+-------+---------+---------+
+       Total:                                 15748   76        36124  
+                                                                       
+    /media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/source/ti/devices/cc32xx/driverlib/ccs/Release/driverlib.a
+       prcm.obj                               1756    168       0      
+       interrupt.obj                          608     284       0      
+       pin.obj                                144     256       0      
+       flash.obj                              72      0         0      
+       uart.obj                               48      0         0      
+       cpu.obj                                32      0         0      
+       systick.obj                            32      0         0      
+       utils.obj                              6       0         0      
+    +--+--------------------------------------+-------+---------+---------+
+       Total:                                 2698    708       0      
+                                                                       
+    /media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/source/ti/drivers/lib/drivers_cc32xx.aem4
+       UARTCC32XX.oem4                        3318    116       0      
+       PowerCC32XX.oem4                       2326    0         664    
+       GPIOCC32XX.oem4                        1180    103       65     
+       I2CCC32XX.oem4                         1206    32        1      
+       UART.oem4                              182     36        1      
+       RingBuf.oem4                           184     0         0      
+       I2C.oem4                               154     16        1      
+       PowerCC32XX_asm.oem4                   150     0         0      
+       List.oem4                              78      0         0      
+    +--+--------------------------------------+-------+---------+---------+
+       Total:                                 8778    303       732    
+                                                                       
+       Stack:                                 0       0         1024   
+       Linker Generated:                      0       254       0      
+    +--+--------------------------------------+-------+---------+---------+
+       Grand Total:                           30494   1798      38621  
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 20014e08 records: 2, size/record: 8, table size: 16
+	.data: load addr=20014d18, load size=000000da bytes, run addr=20013c04, run size=00000b40 bytes, compression=lzss
+	.bss: load addr=20014e00, load size=00000008 bytes, run addr=20004040, run size=00008491 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 20014df4 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                               
+-------   ----                               
+20014cb4  ADC_count                          
+20012171  C$$EXIT                            
+20013b01  CC3220S_LAUNCHXL_initGeneral       
+2001390f  CPUcpsie                           
+20013b0d  CPUwfi                             
+20014cb5  Capture_count                      
+200136e5  ClockP_Params_init                 
+200136a9  ClockP_callbackFxn                 
+20010eed  ClockP_create                      
+200120c9  ClockP_delete                      
+20013589  ClockP_getCpuFreq                  
+20013a39  ClockP_getSystemTickPeriod         
+20013849  ClockP_setTimeout                  
+2000fc95  ClockP_start                       
+200117c9  ClockP_stop                        
+20014cb6  CryptoCC32XX_count                 
+20014cb7  Display_count                      
+200125c1  FlashDisable                       
+20014c24  GPIOCC32XX_config                  
+200123ad  GPIO_enableInt                     
+20011151  GPIO_hwiIntFxn                     
+2000f049  GPIO_init                          
+20011d05  GPIO_setCallback                   
+2000d109  GPIO_setConfig                     
+20011d5d  GPIO_write                         
+200136c7  HwiP_Params_init                   
+20013b19  HwiP_clearInterrupt                
+20011a1d  HwiP_create                        
+20013a15  HwiP_delete                        
+20013125  HwiP_disable                       
+20013b25  HwiP_disableInterrupt              
+20012609  HwiP_dispatch                      
+20013c04  HwiP_dispatchTable                 
+20013b31  HwiP_enableInterrupt               
+20013331  HwiP_inISR                         
+200135a9  HwiP_restore                       
+2000dcf3  I2CCC32XX_cancel                   
+2001089d  I2CCC32XX_close                    
+20013beb  I2CCC32XX_control                  
+20014b94  I2CCC32XX_fxnTable                 
+2000e7d7  I2CCC32XX_init                     
+2000e5c9  I2CCC32XX_open                     
+20010285  I2CCC32XX_transfer                 
+20013a49  I2C_Params_init                    
+20014cc4  I2C_config                         
+20014cb8  I2C_count                          
+20014c84  I2C_defaultParams                  
+200127b9  I2C_init                           
+20012b15  I2C_open                           
+20013b85  I2C_transfer                       
+20014cb9  I2S_count                          
+2000fe95  IntDisable                         
+2000ff3d  IntEnable                          
+20013b8f  IntMasterEnable                    
+20011db5  IntPendClear                       
+2001211d  IntPrioritySet                     
+200135c9  IntRegister                        
+2001346d  IntUnregister                      
+20013925  IntVTableBaseSet                   
+20013b99  List_empty                         
+20013bf7  List_head                          
+20013bfb  List_next                          
+200133f9  List_put                           
+2001385f  List_remove                        
+2000c4d5  PRCMCC3200MCUInit                  
+20013875  PRCMHIBRegRead                     
+2001388b  PRCMHIBRegWrite                    
+20012651  PRCMLPDSEnter                      
+20012da9  PRCMLPDSEnterKeepDebugIf           
+20013151  PRCMLPDSIntervalSet                
+200127fd  PRCMLPDSRestoreInfoSet             
+20013359  PRCMLPDSWakeupSourceEnable         
+20013381  PRCMPeripheralClkDisable           
+20012699  PRCMPeripheralClkEnable            
+20011e0d  PRCMPeripheralReset                
+20013bd3  PRCMSleepEnter                     
+20012b51  PRCMSlowClkCtrFastGet              
+20011a7d  PRCMSysResetCauseGet               
+200138a1  PTLS_getBuf                        
+200138b7  PTLS_setBuf                        
+20013755  PTLS_taskDeleteHook                
+20014cba  PWM_count                          
+20012f2d  PinModeGet                         
+20012995  PinModeSet                         
+20013701  PinToPadGet                        
+20014a84  PowerCC32XX_config                 
+2000ffe5  PowerCC32XX_configureWakeup        
+2000c040  PowerCC32XX_contextSave            
+20012841  PowerCC32XX_enterLPDS              
+2001317d  PowerCC32XX_getParkState           
+20013939  PowerCC32XX_getWakeup              
+2000f413  PowerCC32XX_initPolicy             
+20014404  PowerCC32XX_module                 
+20012219  PowerCC32XX_parkPin                
+20012f61  PowerCC32XX_restoreParkState       
+20012ec1  PowerCC32XX_restoreParkedPin       
+2001226b  PowerCC32XX_resumeLPDS             
+2001182d  PowerCC32XX_setParkState           
+2000d48d  PowerCC32XX_sleepPolicy            
+20013a59  Power_enablePolicy                 
+20013b3d  Power_getConstraintMask            
+2001394d  Power_getDependencyCount           
+20013ac9  Power_getTransitionLatency         
+20013789  Power_idleFunc                     
+200111c9  Power_init                         
+200133a9  Power_registerNotify               
+200126e1  Power_releaseConstraint            
+20011e65  Power_releaseDependency            
+20012b8d  Power_setConstraint                
+20011add  Power_setDependency                
+2000e16d  Power_sleep                        
+200135e9  Power_unregisterNotify             
+20013a27  RingBuf_construct                  
+200129d5  RingBuf_get                        
+20013609  RingBuf_peek                       
+20012771  RingBuf_put                        
+20014cbb  SDFatFS_count                      
+20014cbc  SD_count                           
+UNDEFED   SHT$$INIT_ARRAY$$Base              
+UNDEFED   SHT$$INIT_ARRAY$$Limit             
+20014cbd  SPI_count                          
+200138cd  SemaphoreP_Params_init             
+2001201d  SemaphoreP_create                  
+200131a9  SemaphoreP_createBinary            
+20013b49  SemaphoreP_delete                  
+20013629  SemaphoreP_pend                    
+20013521  SemaphoreP_post                    
+20013a69  SysTickDisable                     
+20013a79  SysTickEnable                      
+20014cbe  Timer_count                        
+200137a1  UARTBusy                           
+2000dcf5  UARTCC32XX_close                   
+2000ebc9  UARTCC32XX_control                 
+20014ac4  UARTCC32XX_fxnTable                
+2000f4cf  UARTCC32XX_init                    
+2000c901  UARTCC32XX_open                    
+20012a15  UARTCC32XX_read                    
+20012ef7  UARTCC32XX_readCancel              
+2000f869  UARTCC32XX_readPolling             
+2000f295  UARTCC32XX_write                   
+20011695  UARTCC32XX_writeCancel             
+200118f5  UARTCC32XX_writePolling            
+200137b9  UARTIntEnable                      
+200137d1  UART_Params_init                   
+20013ba3  UART_close                         
+20014bac  UART_config                        
+20014cbf  UART_count                         
+20014b14  UART_defaultParams                 
+20012885  UART_init                          
+20012bc9  UART_open                          
+20013bad  UART_read                          
+20013bb7  UART_write                         
+20013bf1  UtilsDelay                         
+20014cc0  Watchdog_count                     
+20004000  __STACK_END                        
+00000400  __STACK_SIZE                       
+20014e08  __TI_CINIT_Base                    
+20014e18  __TI_CINIT_Limit                   
+20014df4  __TI_Handler_Table_Base            
+20014e00  __TI_Handler_Table_Limit           
+20011485  __TI_auto_init                     
+200146d8  __TI_cleanup_ptr                   
+200114f5  __TI_decompress_lzss               
+20013ae5  __TI_decompress_none               
+200146dc  __TI_dtors_ptr                     
+200146e0  __TI_enable_exit_profile_output    
+ffffffff  __TI_pprof_out_hndl                
+ffffffff  __TI_prof_data_size                
+ffffffff  __TI_prof_data_start               
+20014d18  __TI_static_base__                 
+20013b55  __TI_zero_init                     
+20013543  __aeabi_errno_addr                 
+20012e51  __aeabi_f2iz                       
+2000e9d9  __aeabi_fadd                       
+20010779  __aeabi_fdiv                       
+20010fe3  __aeabi_fmul                       
+2000e9d5  __aeabi_fsub                       
+20012e89  __aeabi_i2f                        
+20013801  __aeabi_lmul                       
+2001105d  __aeabi_memclr                     
+2001105d  __aeabi_memclr4                    
+2001105d  __aeabi_memclr8                    
+20010513  __aeabi_memcpy                     
+20010513  __aeabi_memcpy4                    
+20010513  __aeabi_memcpy8                    
+2001105f  __aeabi_memset                     
+2001105f  __aeabi_memset4                    
+2001105f  __aeabi_memset8                    
+2000cb71  __aeabi_uldivmod                   
+ffffffff  __binit__                          
+ffffffff  __c_args__                         
+200117c7  __mpu_init                         
+20003c00  __stack                            
+200137e9  _args_main                         
+20012a55  _c_int00                           
+2000f91d  _clock_abstime2ticks               
+20014714  _lock                              
+200139bf  _nop                               
+2001341f  _pthread_cleanup_pop               
+200139b7  _register_lock                     
+200139b1  _register_unlock                   
+20011a1b  _system_post_cinit                 
+20013bff  _system_pre_init                   
+20014718  _unlock                            
+20012175  abort                              
+ffffffff  binit                              
+20014aec  byeDisplay                         
+20014a3a  cleanDisplay                       
+200109b5  clock_gettime                      
+20014b7c  consoleDisplay                     
+2000fa85  consoleThread                      
+20012529  copy_in                            
+20011ebd  eTaskConfirmSleepModeStatus        
+2001217d  exit                               
+20013491  gpioButtonFxn                      
+2001471c  gpioCallbackFunctions              
+200146fc  gpioPinConfigs                     
+200149c0  helpPrompt                         
+20014ca4  i2cCC3220SHWAttrs                  
+2000c33c  i2cCC3220SObjects                  
+20014cf6  inPinTypes                         
+20012445  initVectors                        
+20010329  main                               
+20014740  main_func_sp                       
+20010513  memcpy                             
+20011065  memset                             
+20014cfc  outPinStrengths                    
+20014ce0  outPinTypes                        
+20014570  parkInfo                           
+2001371d  pthread_attr_init                  
+20013565  pthread_attr_setdetachstate        
+200133d1  pthread_attr_setschedparam         
+20013975  pthread_attr_setstacksize          
+2000e39d  pthread_create                     
+200132db  pthread_mutex_destroy              
+20010a41  pthread_mutex_init                 
+200138e3  pthread_mutex_lock                 
+200119b9  pthread_mutex_unlock               
+20013989  pthread_self                       
+2000d641  pvPortMalloc                       
+20012c7d  pvTaskGetThreadLocalStoragePointer 
+20013739  pvTaskIncrementMutexHeldCount      
+200130f5  pvTimerGetTimerID                  
+20014668  pxCurrentTCB                       
+200122bd  pxPortInitialiseStack              
+20014c0c  readErrDisplay                     
+200138f9  resetISR                           
+20013908  resetVectorAddr                    
+20004000  resetVectors                       
+2000c3ec  semConsole                         
+2001230d  sem_init                           
+20012ad5  sem_post                           
+20013819  sem_wait                           
+20010ded  setupTimer                         
+2000de15  simpleConsole                      
+200139c5  strlen                             
+20014d02  tempEndDisplay                     
+20014d0b  tempMidDisplay                     
+20014c74  tempStartDisplay                   
+2000c4c4  temperatureC                       
+2000c4c8  temperatureF                       
+2000c4cc  temperatureMutex                   
+2000e7d9  temperatureThread                  
+2000f6f9  timer_create                       
+200131d5  timer_delete                       
+20010e6d  timer_gettime                      
+2000cd65  timer_settime                      
+20014a3c  uartCC3220SHWAttrs                 
+2000c16c  uartCC3220SObjects                 
+2000c38c  uartCC3220SRingBuffer              
+20014711  uartEnabled                        
+20014cd8  ulMaxSyscallInterruptPriority      
+2000f425  ulPortGetIPSR                      
+20014b59  userPrompt                         
+20012729  uxListRemove                       
+20011d03  vApplicationMallocFailedHook       
+20013bc1  vApplicationStackOverflowHook      
+20013065  vListInitialise                    
+20013aa9  vListInitialiseItem                
+200116fb  vListInsert                        
+20012cf5  vListInsertEnd                     
+20012575  vPortEnterCritical                 
+20013095  vPortExitCritical                  
+200103cd  vPortFree                          
+2000f489  vPortSVCHandler                    
+20011f15  vPortSetupTimerInterrupt           
+2000f4ad  vPortStartFirstTask                
+200139d9  vPortSuppressTicksAndSleep         
+200113a1  vPortValidateInterruptPriority     
+200134d9  vQueueDelete                       
+20011c4d  vQueueWaitForMessageRestricted     
+2000ead1  vTaskDelete                        
+200134fd  vTaskInternalSetTimeOutState       
+20013b79  vTaskMissedYield                   
+20012fc9  vTaskPlaceOnEventList              
+20012a95  vTaskPlaceOnEventListRestricted    
+2000e4b5  vTaskPriorityDisinheritAfterTimeout
+20013201  vTaskSetApplicationTaskTag         
+20012ffd  vTaskSetThreadLocalStoragePointer  
+20012d31  vTaskSetTimeOutState               
+200106e5  vTaskStartScheduler                
+20012951  vTaskStepTick                      
+2000e8d9  vTaskSuspend                       
+20013ab9  vTaskSuspendAll                    
+2000ef6d  vTaskSwitchContext                 
+2000f43d  xPortPendSVHandler                 
+200105b1  xPortStartScheduler                
+2001322d  xPortSysTickHandler                
+20011f6d  xQueueCreateCountingSemaphore      
+20013259  xQueueCreateMutex                  
+20011761  xQueueGenericCreate                
+2000f7b1  xQueueGenericReset                 
+2000d2d5  xQueueGenericSend                  
+2000e6d5  xQueueGenericSendFromISR           
+2000ecb7  xQueueGiveFromISR                  
+2001235d  xQueueGiveMutexRecursive           
+2000d7cd  xQueueReceive                      
+2000cf39  xQueueSemaphoreTake                
+20011fc5  xQueueTakeMutexRecursive           
+20010135  xTaskCheckForTimeOut               
+200110d7  xTaskCreate                        
+20013285  xTaskGetApplicationTaskTag         
+200139ed  xTaskGetCurrentTaskHandle          
+200130c5  xTaskGetSchedulerState             
+20013a01  xTaskGetTickCount                  
+20013831  xTaskGetTickCountFromISR           
+2000da99  xTaskIncrementTick                 
+2000ee8d  xTaskPriorityDisinherit            
+2000eda5  xTaskPriorityInherit               
+200101dd  xTaskRemoveFromEventList           
+2000e051  xTaskResumeAll                     
+20013031  xTimerCreate                       
+200121c5  xTimerCreateTimerTask              
+20010ce9  xTimerGenericCommand               
+20013305  xTimerGetExpiryTime                
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                               
+-------   ----                               
+00000400  __STACK_SIZE                       
+20003c00  __stack                            
+20004000  __STACK_END                        
+20004000  resetVectors                       
+2000c040  PowerCC32XX_contextSave            
+2000c16c  uartCC3220SObjects                 
+2000c33c  i2cCC3220SObjects                  
+2000c38c  uartCC3220SRingBuffer              
+2000c3ec  semConsole                         
+2000c4c4  temperatureC                       
+2000c4c8  temperatureF                       
+2000c4cc  temperatureMutex                   
+2000c4d5  PRCMCC3200MCUInit                  
+2000c901  UARTCC32XX_open                    
+2000cb71  __aeabi_uldivmod                   
+2000cd65  timer_settime                      
+2000cf39  xQueueSemaphoreTake                
+2000d109  GPIO_setConfig                     
+2000d2d5  xQueueGenericSend                  
+2000d48d  PowerCC32XX_sleepPolicy            
+2000d641  pvPortMalloc                       
+2000d7cd  xQueueReceive                      
+2000da99  xTaskIncrementTick                 
+2000dcf3  I2CCC32XX_cancel                   
+2000dcf5  UARTCC32XX_close                   
+2000de15  simpleConsole                      
+2000e051  xTaskResumeAll                     
+2000e16d  Power_sleep                        
+2000e39d  pthread_create                     
+2000e4b5  vTaskPriorityDisinheritAfterTimeout
+2000e5c9  I2CCC32XX_open                     
+2000e6d5  xQueueGenericSendFromISR           
+2000e7d7  I2CCC32XX_init                     
+2000e7d9  temperatureThread                  
+2000e8d9  vTaskSuspend                       
+2000e9d5  __aeabi_fsub                       
+2000e9d9  __aeabi_fadd                       
+2000ead1  vTaskDelete                        
+2000ebc9  UARTCC32XX_control                 
+2000ecb7  xQueueGiveFromISR                  
+2000eda5  xTaskPriorityInherit               
+2000ee8d  xTaskPriorityDisinherit            
+2000ef6d  vTaskSwitchContext                 
+2000f049  GPIO_init                          
+2000f295  UARTCC32XX_write                   
+2000f413  PowerCC32XX_initPolicy             
+2000f425  ulPortGetIPSR                      
+2000f43d  xPortPendSVHandler                 
+2000f489  vPortSVCHandler                    
+2000f4ad  vPortStartFirstTask                
+2000f4cf  UARTCC32XX_init                    
+2000f6f9  timer_create                       
+2000f7b1  xQueueGenericReset                 
+2000f869  UARTCC32XX_readPolling             
+2000f91d  _clock_abstime2ticks               
+2000fa85  consoleThread                      
+2000fc95  ClockP_start                       
+2000fe95  IntDisable                         
+2000ff3d  IntEnable                          
+2000ffe5  PowerCC32XX_configureWakeup        
+20010135  xTaskCheckForTimeOut               
+200101dd  xTaskRemoveFromEventList           
+20010285  I2CCC32XX_transfer                 
+20010329  main                               
+200103cd  vPortFree                          
+20010513  __aeabi_memcpy                     
+20010513  __aeabi_memcpy4                    
+20010513  __aeabi_memcpy8                    
+20010513  memcpy                             
+200105b1  xPortStartScheduler                
+200106e5  vTaskStartScheduler                
+20010779  __aeabi_fdiv                       
+2001089d  I2CCC32XX_close                    
+200109b5  clock_gettime                      
+20010a41  pthread_mutex_init                 
+20010ce9  xTimerGenericCommand               
+20010ded  setupTimer                         
+20010e6d  timer_gettime                      
+20010eed  ClockP_create                      
+20010fe3  __aeabi_fmul                       
+2001105d  __aeabi_memclr                     
+2001105d  __aeabi_memclr4                    
+2001105d  __aeabi_memclr8                    
+2001105f  __aeabi_memset                     
+2001105f  __aeabi_memset4                    
+2001105f  __aeabi_memset8                    
+20011065  memset                             
+200110d7  xTaskCreate                        
+20011151  GPIO_hwiIntFxn                     
+200111c9  Power_init                         
+200113a1  vPortValidateInterruptPriority     
+20011485  __TI_auto_init                     
+200114f5  __TI_decompress_lzss               
+20011695  UARTCC32XX_writeCancel             
+200116fb  vListInsert                        
+20011761  xQueueGenericCreate                
+200117c7  __mpu_init                         
+200117c9  ClockP_stop                        
+2001182d  PowerCC32XX_setParkState           
+200118f5  UARTCC32XX_writePolling            
+200119b9  pthread_mutex_unlock               
+20011a1b  _system_post_cinit                 
+20011a1d  HwiP_create                        
+20011a7d  PRCMSysResetCauseGet               
+20011add  Power_setDependency                
+20011c4d  vQueueWaitForMessageRestricted     
+20011d03  vApplicationMallocFailedHook       
+20011d05  GPIO_setCallback                   
+20011d5d  GPIO_write                         
+20011db5  IntPendClear                       
+20011e0d  PRCMPeripheralReset                
+20011e65  Power_releaseDependency            
+20011ebd  eTaskConfirmSleepModeStatus        
+20011f15  vPortSetupTimerInterrupt           
+20011f6d  xQueueCreateCountingSemaphore      
+20011fc5  xQueueTakeMutexRecursive           
+2001201d  SemaphoreP_create                  
+200120c9  ClockP_delete                      
+2001211d  IntPrioritySet                     
+20012171  C$$EXIT                            
+20012175  abort                              
+2001217d  exit                               
+200121c5  xTimerCreateTimerTask              
+20012219  PowerCC32XX_parkPin                
+2001226b  PowerCC32XX_resumeLPDS             
+200122bd  pxPortInitialiseStack              
+2001230d  sem_init                           
+2001235d  xQueueGiveMutexRecursive           
+200123ad  GPIO_enableInt                     
+20012445  initVectors                        
+20012529  copy_in                            
+20012575  vPortEnterCritical                 
+200125c1  FlashDisable                       
+20012609  HwiP_dispatch                      
+20012651  PRCMLPDSEnter                      
+20012699  PRCMPeripheralClkEnable            
+200126e1  Power_releaseConstraint            
+20012729  uxListRemove                       
+20012771  RingBuf_put                        
+200127b9  I2C_init                           
+200127fd  PRCMLPDSRestoreInfoSet             
+20012841  PowerCC32XX_enterLPDS              
+20012885  UART_init                          
+20012951  vTaskStepTick                      
+20012995  PinModeSet                         
+200129d5  RingBuf_get                        
+20012a15  UARTCC32XX_read                    
+20012a55  _c_int00                           
+20012a95  vTaskPlaceOnEventListRestricted    
+20012ad5  sem_post                           
+20012b15  I2C_open                           
+20012b51  PRCMSlowClkCtrFastGet              
+20012b8d  Power_setConstraint                
+20012bc9  UART_open                          
+20012c7d  pvTaskGetThreadLocalStoragePointer 
+20012cf5  vListInsertEnd                     
+20012d31  vTaskSetTimeOutState               
+20012da9  PRCMLPDSEnterKeepDebugIf           
+20012e51  __aeabi_f2iz                       
+20012e89  __aeabi_i2f                        
+20012ec1  PowerCC32XX_restoreParkedPin       
+20012ef7  UARTCC32XX_readCancel              
+20012f2d  PinModeGet                         
+20012f61  PowerCC32XX_restoreParkState       
+20012fc9  vTaskPlaceOnEventList              
+20012ffd  vTaskSetThreadLocalStoragePointer  
+20013031  xTimerCreate                       
+20013065  vListInitialise                    
+20013095  vPortExitCritical                  
+200130c5  xTaskGetSchedulerState             
+200130f5  pvTimerGetTimerID                  
+20013125  HwiP_disable                       
+20013151  PRCMLPDSIntervalSet                
+2001317d  PowerCC32XX_getParkState           
+200131a9  SemaphoreP_createBinary            
+200131d5  timer_delete                       
+20013201  vTaskSetApplicationTaskTag         
+2001322d  xPortSysTickHandler                
+20013259  xQueueCreateMutex                  
+20013285  xTaskGetApplicationTaskTag         
+200132db  pthread_mutex_destroy              
+20013305  xTimerGetExpiryTime                
+20013331  HwiP_inISR                         
+20013359  PRCMLPDSWakeupSourceEnable         
+20013381  PRCMPeripheralClkDisable           
+200133a9  Power_registerNotify               
+200133d1  pthread_attr_setschedparam         
+200133f9  List_put                           
+2001341f  _pthread_cleanup_pop               
+2001346d  IntUnregister                      
+20013491  gpioButtonFxn                      
+200134d9  vQueueDelete                       
+200134fd  vTaskInternalSetTimeOutState       
+20013521  SemaphoreP_post                    
+20013543  __aeabi_errno_addr                 
+20013565  pthread_attr_setdetachstate        
+20013589  ClockP_getCpuFreq                  
+200135a9  HwiP_restore                       
+200135c9  IntRegister                        
+200135e9  Power_unregisterNotify             
+20013609  RingBuf_peek                       
+20013629  SemaphoreP_pend                    
+200136a9  ClockP_callbackFxn                 
+200136c7  HwiP_Params_init                   
+200136e5  ClockP_Params_init                 
+20013701  PinToPadGet                        
+2001371d  pthread_attr_init                  
+20013739  pvTaskIncrementMutexHeldCount      
+20013755  PTLS_taskDeleteHook                
+20013789  Power_idleFunc                     
+200137a1  UARTBusy                           
+200137b9  UARTIntEnable                      
+200137d1  UART_Params_init                   
+200137e9  _args_main                         
+20013801  __aeabi_lmul                       
+20013819  sem_wait                           
+20013831  xTaskGetTickCountFromISR           
+20013849  ClockP_setTimeout                  
+2001385f  List_remove                        
+20013875  PRCMHIBRegRead                     
+2001388b  PRCMHIBRegWrite                    
+200138a1  PTLS_getBuf                        
+200138b7  PTLS_setBuf                        
+200138cd  SemaphoreP_Params_init             
+200138e3  pthread_mutex_lock                 
+200138f9  resetISR                           
+20013908  resetVectorAddr                    
+2001390f  CPUcpsie                           
+20013925  IntVTableBaseSet                   
+20013939  PowerCC32XX_getWakeup              
+2001394d  Power_getDependencyCount           
+20013975  pthread_attr_setstacksize          
+20013989  pthread_self                       
+200139b1  _register_unlock                   
+200139b7  _register_lock                     
+200139bf  _nop                               
+200139c5  strlen                             
+200139d9  vPortSuppressTicksAndSleep         
+200139ed  xTaskGetCurrentTaskHandle          
+20013a01  xTaskGetTickCount                  
+20013a15  HwiP_delete                        
+20013a27  RingBuf_construct                  
+20013a39  ClockP_getSystemTickPeriod         
+20013a49  I2C_Params_init                    
+20013a59  Power_enablePolicy                 
+20013a69  SysTickDisable                     
+20013a79  SysTickEnable                      
+20013aa9  vListInitialiseItem                
+20013ab9  vTaskSuspendAll                    
+20013ac9  Power_getTransitionLatency         
+20013ae5  __TI_decompress_none               
+20013b01  CC3220S_LAUNCHXL_initGeneral       
+20013b0d  CPUwfi                             
+20013b19  HwiP_clearInterrupt                
+20013b25  HwiP_disableInterrupt              
+20013b31  HwiP_enableInterrupt               
+20013b3d  Power_getConstraintMask            
+20013b49  SemaphoreP_delete                  
+20013b55  __TI_zero_init                     
+20013b79  vTaskMissedYield                   
+20013b85  I2C_transfer                       
+20013b8f  IntMasterEnable                    
+20013b99  List_empty                         
+20013ba3  UART_close                         
+20013bad  UART_read                          
+20013bb7  UART_write                         
+20013bc1  vApplicationStackOverflowHook      
+20013bd3  PRCMSleepEnter                     
+20013beb  I2CCC32XX_control                  
+20013bf1  UtilsDelay                         
+20013bf7  List_head                          
+20013bfb  List_next                          
+20013bff  _system_pre_init                   
+20013c04  HwiP_dispatchTable                 
+20014404  PowerCC32XX_module                 
+20014570  parkInfo                           
+20014668  pxCurrentTCB                       
+200146d8  __TI_cleanup_ptr                   
+200146dc  __TI_dtors_ptr                     
+200146e0  __TI_enable_exit_profile_output    
+200146fc  gpioPinConfigs                     
+20014711  uartEnabled                        
+20014714  _lock                              
+20014718  _unlock                            
+2001471c  gpioCallbackFunctions              
+20014740  main_func_sp                       
+200149c0  helpPrompt                         
+20014a3a  cleanDisplay                       
+20014a3c  uartCC3220SHWAttrs                 
+20014a84  PowerCC32XX_config                 
+20014ac4  UARTCC32XX_fxnTable                
+20014aec  byeDisplay                         
+20014b14  UART_defaultParams                 
+20014b59  userPrompt                         
+20014b7c  consoleDisplay                     
+20014b94  I2CCC32XX_fxnTable                 
+20014bac  UART_config                        
+20014c0c  readErrDisplay                     
+20014c24  GPIOCC32XX_config                  
+20014c74  tempStartDisplay                   
+20014c84  I2C_defaultParams                  
+20014ca4  i2cCC3220SHWAttrs                  
+20014cb4  ADC_count                          
+20014cb5  Capture_count                      
+20014cb6  CryptoCC32XX_count                 
+20014cb7  Display_count                      
+20014cb8  I2C_count                          
+20014cb9  I2S_count                          
+20014cba  PWM_count                          
+20014cbb  SDFatFS_count                      
+20014cbc  SD_count                           
+20014cbd  SPI_count                          
+20014cbe  Timer_count                        
+20014cbf  UART_count                         
+20014cc0  Watchdog_count                     
+20014cc4  I2C_config                         
+20014cd8  ulMaxSyscallInterruptPriority      
+20014ce0  outPinTypes                        
+20014cf6  inPinTypes                         
+20014cfc  outPinStrengths                    
+20014d02  tempEndDisplay                     
+20014d0b  tempMidDisplay                     
+20014d18  __TI_static_base__                 
+20014df4  __TI_Handler_Table_Base            
+20014e00  __TI_Handler_Table_Limit           
+20014e08  __TI_CINIT_Base                    
+20014e18  __TI_CINIT_Limit                   
+ffffffff  __TI_pprof_out_hndl                
+ffffffff  __TI_prof_data_size                
+ffffffff  __TI_prof_data_start               
+ffffffff  __binit__                          
+ffffffff  __c_args__                         
+ffffffff  binit                              
+UNDEFED   SHT$$INIT_ARRAY$$Base              
+UNDEFED   SHT$$INIT_ARRAY$$Limit             
+
+[335 symbols]

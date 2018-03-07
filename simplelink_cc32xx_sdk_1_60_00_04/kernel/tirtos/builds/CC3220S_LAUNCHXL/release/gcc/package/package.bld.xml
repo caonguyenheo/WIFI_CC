@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="gcc" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/release_pm4g.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220S_LAUNCHXL/release/release.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/release_pm4g.mak" src="package.bld"/>
+        <srcFile name="package/cfg/release_pm4g.om4g.dep" src="package/cfg/release_pm4g.c"/>
+        <srcFile name="package/cfg/release_pm4g.dep" src="package/cfg/release_pm4g.cfg"/>
+        <srcFile name="package/cfg/release.xm4g.mak" src="package.bld"/>
+        <srcFile name="package/rel/gcc.tar.dep" src="package/rel/gcc.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="gnu.targets.arm.M4"
+            version="gnu.targets.arm.M4{1,0,6.3,1"
+            rawVersion="6.3.1"
+            platform="ti.platforms.tiva:TM4C1294NCPDT"
+            isa="v7M4"
+            suffix="m4g"
+            rootDir="/home/heo/ti/ccsv7/tools/compiler/gcc-arm-none-eabi-6-2017-q1-update"
+            os="undefined"
+            rts="gnu.targets.arm.rtsv7M">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="release"
+        pname="release.pm4g"
+        target="gnu.targets.arm.M4"
+        platform="ti.platforms.simplelink:CC3220S"
+        profile="release"
+        isPartial="false"
+        xCfgScript="package/cfg/release_pm4g.cfg"
+        xCfgPrefix="package/cfg/release_pm4g"
+        cfgScript="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220S_LAUNCHXL/release/release.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="release"
+        pname="release.xm4g"
+        target="gnu.targets.arm.M4"
+        platform="ti.platforms.simplelink:CC3220S"
+        profile="release"
+        xCfgScript="package/cfg/release_pm4g.cfg"
+        xCfgPrefix="package/cfg/release_pm4g"
+        cfgScript="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220S_LAUNCHXL/release/release.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="release.xm4g"
+        args=""
+        groupName="release.xm4g"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="gcc"
+        pname="gcc.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

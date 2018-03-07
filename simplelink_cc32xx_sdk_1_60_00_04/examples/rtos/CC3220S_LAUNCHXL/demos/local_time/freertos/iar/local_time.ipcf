@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IAR Project Connection File -->
+
+<iarProjectConnection version="1.2" name="Local Time" oneShot="true"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="IarProjectConnection_1.2.xsd">
+
+  <device>
+    <name>CC3220S</name>
+  </device>
+
+  <extraOptions>
+    <args>
+      <arg>-I$PROJ_DIR$</arg>
+      <arg>-I$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source</arg>
+      <arg>-I$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/posix/iar</arg>
+      <arg>-I$FREERTOS_INSTALL_DIR$/FreeRTOS/Source/include</arg>
+      <arg>-I$FREERTOS_INSTALL_DIR$/FreeRTOS/Source/portable/IAR/ARM_CM3</arg>
+      <arg>-I$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/kernel/freertos/builds/CC3220S_LAUNCHXL/release</arg>
+      <arg>--debug</arg>
+      <arg>--silent</arg>
+      <arg>-e</arg>
+      <arg>--aeabi</arg>
+      <arg>--thumb</arg>
+      <arg>--diag_suppress=Pa050</arg>
+    </args>
+  </extraOptions>
+
+  <asmIncludePath>
+    <path>$PROJ_DIR$</path>
+    <path>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/kernel/freertos/builds/CC3220S_LAUNCHXL/release</path>
+  </asmIncludePath>
+
+  <asmDefines>
+  </asmDefines>
+
+  <linkerFile>
+    <override>true</override>
+    <path>$PROJ_DIR$/$PROJ_FNAME$_CC3220S_LAUNCHXL_FREERTOS.icf</path>
+  </linkerFile>
+
+  <linkerExtraOptions>
+    <args>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/net/utils/iar/Release/net_utils.a</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/net/sntp/lib/iar/m4/sntp_release.a</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/drivers/net/wifi/slnetif/iar/Release/slnetifwifi.a</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/net/lib/iar/m4/slnetsock_release.a</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/display/lib/display.arm4</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/drivers/lib/drivers_cc32xx.arm4</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/third_party/fatfs/lib/fatfs.arm4</arg>
+      <arg>--threaded_lib</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/drivers/net/wifi/iar/rtos/simplelink.a</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/kernel/freertos/builds/CC3220S_LAUNCHXL/release/iar/freertos.lib</arg>
+      <arg>$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/devices/cc32xx/driverlib/iar/Release/driverlib.a</arg>
+      <arg>--silent</arg>
+      <arg>--cpu=Cortex-M4</arg>
+      <arg>--redirect</arg>
+      <arg>_Printf=_PrintfSmall</arg>
+      <arg>--redirect</arg>
+      <arg>_Scanf=_ScanfSmall</arg>
+    </args>
+  </linkerExtraOptions>
+
+  <heaps>
+    <heap> <!-- If omitted, id="0" -->
+      <size>0</size>
+    </heap>
+    <heap id="1">
+      <size>0</size>
+    </heap>
+  </heaps>
+  <stacks>
+    <stack> <!-- If omitted, id="0" -->
+      <size>512</size>
+    </stack>
+  </stacks>
+
+  <preBuild>
+    <command>iarbuild.exe $SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/kernel/freertos/builds/CC3220S_LAUNCHXL/release/iar/freertos_builds_CC3220S_LAUNCHXL_release.ewp Debug</command>
+  </preBuild>
+
+  <postBuild>
+    <command>ielftool.exe --bin --verbose "$PROJ_DIR$/Debug/Exe/$PROJ_FNAME$.out" "$PROJ_DIR$/Debug/Exe/$PROJ_FNAME$.bin"</command>
+  </postBuild>
+
+  <files>
+    <group name="Source files">
+      <path copyTo="$PROJ_DIR$/uart_term.c">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/uart_term.c</path>
+      <path copyTo="$PROJ_DIR$/main_freertos.c">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/freertos/main_freertos.c</path>
+      <path copyTo="$PROJ_DIR$/local_time.c">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/local_time.c</path>
+      <path copyTo="$PROJ_DIR$/CC3220S_LAUNCHXL.c">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/CC3220S_LAUNCHXL.c</path>
+      <path copyTo="$PROJ_DIR$/$PROJ_FNAME$_CC3220S_LAUNCHXL_FREERTOS.icf">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/freertos/iar/CC3220S_LAUNCHXL_FREERTOS.icf</path>
+    </group>
+
+    <group name="Header files">
+      <path copyTo="$PROJ_DIR$/uart_term.h">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/uart_term.h</path>
+      <path copyTo="$PROJ_DIR$/Board.h">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/Board.h</path>
+      <path copyTo="$PROJ_DIR$/CC3220S_LAUNCHXL.h">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/CC3220S_LAUNCHXL.h</path>
+    </group>
+
+    <group name="Documentation" build="false">
+      <path copyTo="$PROJ_DIR$/README.html">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/README.html</path>
+      <path copyTo="$PROJ_DIR$/README.md">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/examples/rtos/CC3220S_LAUNCHXL/demos/local_time/README.md</path>
+      <path reference="$PROJ_DIR$/Board.html">$SIMPLELINK_CC32XX_SDK_INSTALL_DIR$/source/ti/boards/CC3220S_LAUNCHXL/Board.html</path>
+    </group>
+  </files>
+</iarProjectConnection>

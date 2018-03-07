@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="gcc" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/debug_pm4g.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220SF_LAUNCHXL/debug/debug.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/debug_pm4g.mak" src="package.bld"/>
+        <srcFile name="package/cfg/debug_pm4g.om4g.dep" src="package/cfg/debug_pm4g.c"/>
+        <srcFile name="package/cfg/debug_pm4g.dep" src="package/cfg/debug_pm4g.cfg"/>
+        <srcFile name="package/cfg/debug.xm4g.mak" src="package.bld"/>
+        <srcFile name="package/rel/gcc.tar.dep" src="package/rel/gcc.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="gnu.targets.arm.M4"
+            version="gnu.targets.arm.M4{1,0,6.3,1"
+            rawVersion="6.3.1"
+            platform="ti.platforms.tiva:TM4C1294NCPDT"
+            isa="v7M4"
+            suffix="m4g"
+            rootDir="/home/heo/ti/ccsv7/tools/compiler/gcc-arm-none-eabi-6-2017-q1-update"
+            os="undefined"
+            rts="gnu.targets.arm.rtsv7M">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="debug"
+        pname="debug.pm4g"
+        target="gnu.targets.arm.M4"
+        platform="ti.platforms.simplelink:CC3220SF"
+        profile="release"
+        isPartial="false"
+        xCfgScript="package/cfg/debug_pm4g.cfg"
+        xCfgPrefix="package/cfg/debug_pm4g"
+        cfgScript="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220SF_LAUNCHXL/debug/debug.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="debug"
+        pname="debug.xm4g"
+        target="gnu.targets.arm.M4"
+        platform="ti.platforms.simplelink:CC3220SF"
+        profile="release"
+        xCfgScript="package/cfg/debug_pm4g.cfg"
+        xCfgPrefix="package/cfg/debug_pm4g"
+        cfgScript="/media/sf_new_cc3220_60/simplelink_cc32xx_sdk_1_60_00_04/kernel/tirtos/builds/CC3220SF_LAUNCHXL/debug/debug.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="debug.xm4g"
+        args=""
+        groupName="debug.xm4g"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="gcc"
+        pname="gcc.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>
